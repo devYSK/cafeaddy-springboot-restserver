@@ -2,3 +2,9 @@
 .gradle
 .idea
 .build
+build/generated/
+build/resources/main/static/
+build/tmp/compileJava/
+src/main/java/xyz/cafeaddy/rest/lcs/service/
+src/main/resources/static/
+src/test/
