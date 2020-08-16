@@ -26,10 +26,19 @@ version '1.0-SNAPSHOT'
 
 sourceCompatibility = 1.8
 
+repositories { // 각종 의존성(라이브러리)들을 어떤 원격 저장소에서 받을지 정하는것.
+    mavenCentral()
+    jcenter() // 라이브러리 업로드 난이도 때문에 jcenter를 요즘 많이 사용
+}
 
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
     compile('org.springframework.boot:spring-boot-starter-web')
+
+    // 웹 템플릿 엔진
+    implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+    // 자동빌드용 의존성
+    compile("org.springframework.boot:spring-boot-devtools")
 
     testCompile('org.springframework.boot:spring-boot-starter-test')
 }
