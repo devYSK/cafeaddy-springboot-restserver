@@ -35,6 +35,13 @@ dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
     compile('org.springframework.boot:spring-boot-starter-web')
 
+    compile('org.projectlombok:lombok')
+    compile('org.springframework.boot:spring-boot-starter-data-jpa:')
+    // mysql
+    compile('org.springframework.session:spring-session-jdbc')
+    compile('org.mariadb.jdbc:mariadb-java-client')
+
+
     // 웹 템플릿 엔진
     implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
     // 자동빌드용 의존성
