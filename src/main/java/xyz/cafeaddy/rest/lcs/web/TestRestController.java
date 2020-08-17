@@ -3,6 +3,7 @@ package xyz.cafeaddy.rest.lcs.web;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import xyz.cafeaddy.rest.lcs.service.test.TestService;
 import xyz.cafeaddy.rest.lcs.web.dto.TestDto;
@@ -25,4 +26,11 @@ public class TestRestController {
 
         return "ok";
     }
+
+    @PostMapping("/api/name")
+    public String name(@RequestParam String name) {
+
+        return name + "hi";
+    }
+
 }
