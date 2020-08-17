@@ -40,7 +40,8 @@ dependencies {
 
     // mysql
     compile('org.springframework.session:spring-session-jdbc')
-    compile('org.mariadb.jdbc:mariadb-java-client')
+//    compile('org.mariadb.jdbc:mariadb-java-client')
+    compile('mysql:mysql-connector-java:8.0.17')
     compile("com.h2database:h2")
 
     // 웹 템플릿 엔진
