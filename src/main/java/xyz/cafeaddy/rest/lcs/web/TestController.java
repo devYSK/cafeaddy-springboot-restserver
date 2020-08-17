@@ -8,11 +8,8 @@ import xyz.cafeaddy.rest.lcs.service.test.TestService;
 import xyz.cafeaddy.rest.lcs.web.dto.TestDto;
 
 @Controller
-@RequiredArgsConstructor
 public class TestController {
 
-
-    private final TestService testService;
 
 
     @GetMapping("test")
@@ -25,17 +22,6 @@ public class TestController {
         return "test2";
     }
 
-    @PostMapping("/api/test")
-    public String save(@RequestBody TestDto testDto) {
 
-        System.out.println("\n\n");
-
-        System.out.println(testDto.toString());
-
-        System.out.println("\n\n");
-        testService.save(testDto);
-
-        return "ok";
-    }
 
 }
