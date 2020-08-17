@@ -17,14 +17,16 @@ public class Test {
     private Long id;
 
     @Column
-    private String name;
+    private String testName;
 
     @Column
     private String title;
 
+
     @Builder
-    public Test(String name, String title) {
-        this.name = name;
+    public Test(String testName, String title) {
+        this.testName = testName;
         this.title = title;
     }
+
 }
