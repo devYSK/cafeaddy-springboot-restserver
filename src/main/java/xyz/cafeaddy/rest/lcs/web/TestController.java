@@ -26,10 +26,16 @@ public class TestController {
     }
 
     @PostMapping("/api/test")
-    public Long save(@RequestBody TestDto testDto) {
+    public String save(@RequestBody TestDto testDto) {
+
+        System.out.println("\n\n");
+
         System.out.println(testDto.toString());
 
-        return testService.save(testDto);
+        System.out.println("\n\n");
+        testService.save(testDto);
+
+        return "ok";
     }
 
 }
