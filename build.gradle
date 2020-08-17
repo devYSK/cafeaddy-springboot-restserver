@@ -40,7 +40,7 @@ dependencies {
 
     // mysql
     compile('org.springframework.session:spring-session-jdbc')
-    compile('mysql:mysql-connector-java:5.1.45')
+    compile('mysql:mysql-connector-java')
 //    compile("com.h2database:h2")
 
     // 웹 템플릿 엔진
