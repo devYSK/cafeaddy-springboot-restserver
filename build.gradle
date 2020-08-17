@@ -42,6 +42,7 @@ dependencies {
     compile('org.springframework.session:spring-session-jdbc')
     compile('org.mariadb.jdbc:mariadb-java-client')
     compile('mysql:mysql-connector-java')
+    compile('org.mariadb.jdbc:mariadb-java-client')
 
     // 웹 템플릿 엔진
     implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
