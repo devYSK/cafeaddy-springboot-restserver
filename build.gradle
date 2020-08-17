@@ -36,12 +36,12 @@ dependencies {
     compile('org.springframework.boot:spring-boot-starter-web')
 
     compile('org.projectlombok:lombok')
-    compile('org.springframework.boot:spring-boot-starter-data-jpa:')
-
-    // mysql
-    compile('org.springframework.session:spring-session-jdbc')
-    compile('org.mariadb.jdbc:mariadb-java-client')
-    compile('mysql:mysql-connector-java')
+//    compile('org.springframework.boot:spring-boot-starter-data-jpa:')
+//
+//    // mysql
+//    compile('org.springframework.session:spring-session-jdbc')
+//    compile('org.mariadb.jdbc:mariadb-java-client')
+//    compile('mysql:mysql-connector-java')
 
     // 웹 템플릿 엔진
     implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
