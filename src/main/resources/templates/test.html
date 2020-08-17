@@ -5,7 +5,7 @@
     <title>hello test page</title>
 </head>
 <h1> test!! </h1>
-
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 
 <form action="/api/test" method="post">
 
@@ -13,10 +13,40 @@
     <input type="text" id="name" name="testName" placeholder="이름을 입력하세요">
     <label for="title">제목</label>
     <input type="text" id="title" name="title" placeholder="제목을 입력하세요">
-
-    <button type="submit">등록</button>
+    <input type="button" id = "button2" value="전송"></input>
 </form>
 
+<script type="text/javascript">
 
+
+    var target = $('#button2');
+
+
+
+    target.on('click', function() {
+
+
+        var transferData = {
+            testName : $('#testName').val(),
+            title : $('#title').val()
+        };
+
+
+        $.ajax({
+            type: 'post',
+            url: 'http://cafeaddy.xyz:8080/api/test',
+            dataType: 'json',
+            contentType: 'application/json; charset=utf-8',
+            //data: JSON.stringify(data)
+            data: JSON.stringify(transferData)
+        }).done(function (data) {
+            //$('#ys').text(data.inputtextdata);
+            alert(data);
+        }).fail(function (error) {
+            alert(JSON.stringify(error));
+        });
+    });
+
+</script>
 </html>
 
