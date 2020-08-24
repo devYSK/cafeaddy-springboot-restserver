@@ -1,4 +1,4 @@
-package xyz.cafeaddy.rest.lcs.web;
+package xyz.cafeaddy.rest.lcs.web.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
