@@ -31,12 +31,12 @@ public class TestRestController {
     }
 
     @PostMapping("/api/datas")
-    public String name4(@RequestParam Double ne, @RequestParam Double sw) {
+    public String name4(@RequestParam String xPoint, @RequestParam String yPoint) {
         System.out.println("메소드 접근");
-        System.out.println("ne = " + ne );
-        System.out.println("sw = " + sw);
+        System.out.println("ne = " + xPoint );
+        System.out.println("sw = " + yPoint);
         System.out.println("메소드 종료 ");
-        return "ne = " + ne + ", sw = " + sw + " wow";
+        return "ne = " + xPoint + ", sw = " + yPoint + " wow";
     }
 
     @GetMapping("/api/name2")
