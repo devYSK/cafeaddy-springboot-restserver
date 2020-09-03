@@ -1,10 +1,7 @@
 package xyz.cafeaddy.rest.lcs.web.controller;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import xyz.cafeaddy.rest.lcs.service.test.TestService;
 import xyz.cafeaddy.rest.lcs.web.dto.TestDto;
 
@@ -33,4 +30,8 @@ public class TestRestController {
         return name + "hi";
     }
 
+    @GetMapping("/api/name2")
+    public String name2(@RequestParam String name) {
+        return name + "hihi2";
+    }
 }
