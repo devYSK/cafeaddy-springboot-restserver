@@ -4,3 +4,5 @@
 build
 .build
 properties
+sql
+application-local-db.properties

@@ -26,11 +26,11 @@ public class CafeInfoRepositoryTests {
     OwnerRepository ownerRepository;
 
 
-    @After
-    public void clean_up() {
-        cafeInfoRepository.deleteAll();
-        ownerRepository.deleteAll();
-    }
+//    @After
+//    public void clean_up() {
+//        cafeInfoRepository.deleteAll();
+//        ownerRepository.deleteAll();
+//    }
 
 
     @Test
@@ -65,5 +65,14 @@ public class CafeInfoRepositoryTests {
         log.debug(owner.toString());
 
         Assertions.assertThat(owner.getId()).isEqualTo(cafeInfo.getOwner().getId());
+    }
+
+    @Test
+    public void readAll() {
+        List<CafeInfo> cafeInfoList = cafeInfoRepository.findAll();
+
+        cafeInfoList.forEach(cafeInfo -> {
+            System.out.println(cafeInfo + "\n");
+        });
     }
 }

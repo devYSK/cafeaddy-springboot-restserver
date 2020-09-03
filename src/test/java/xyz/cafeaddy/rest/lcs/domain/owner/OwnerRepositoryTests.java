@@ -20,10 +20,10 @@ public class OwnerRepositoryTests {
     @Autowired
     OwnerRepository ownerRepository;
 
-    @After
-    public void cleanUp() {
-        ownerRepository.deleteAll();
-    }
+//    @After
+//    public void cleanUp() {
+//        ownerRepository.deleteAll();
+//    }
 
     @Test
     public void save_test() {

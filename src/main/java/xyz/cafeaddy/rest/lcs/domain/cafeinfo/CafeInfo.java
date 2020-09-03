@@ -1,19 +1,22 @@
 package xyz.cafeaddy.rest.lcs.domain.cafeinfo;
 
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
+import lombok.experimental.Accessors;
 import xyz.cafeaddy.rest.lcs.domain.owner.Owner;
+import xyz.cafeaddy.rest.lcs.domain.seat.Seat;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.List;
 
-@ToString
+@ToString(exclude = {"owner", "seatList"})
 @Getter
 @NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name = "cafe_info")
+@Builder
+@Accessors(chain = true)
 public class CafeInfo {
 
     @Id
@@ -51,18 +54,21 @@ public class CafeInfo {
     @JoinColumn(name = "owner_id", referencedColumnName = "owner_id")
     private Owner owner;
 
-    @Builder
-    public CafeInfo(String businessNo, String name, String phone, LocalDateTime openTime, LocalDateTime closeTime, Double latitude, Double longitude, String parcelAddr, String streetAddr, Owner owner) {
-        this.businessNo = businessNo;
-        this.name = name;
-        this.phone = phone;
-        this.openTime = openTime;
-        this.closeTime = closeTime;
-        this.latitude = latitude;
-        this.longitude = longitude;
-        this.parcelAddr = parcelAddr;
-        this.streetAddr = streetAddr;
-        this.owner = owner;
-    }
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "cafeInfo")
+    private List<Seat> seatList;
+
+//    @Builder
+//    public CafeInfo(String businessNo, String name, String phone, LocalDateTime openTime, LocalDateTime closeTime, Double latitude, Double longitude, String parcelAddr, String streetAddr, Owner owner) {
+//        this.businessNo = businessNo;
+//        this.name = name;
+//        this.phone = phone;
+//        this.openTime = openTime;
+//        this.closeTime = closeTime;
+//        this.latitude = latitude;
+//        this.longitude = longitude;
+//        this.parcelAddr = parcelAddr;
+//        this.streetAddr = streetAddr;
+//        this.owner = owner;
+//    }
     
 }

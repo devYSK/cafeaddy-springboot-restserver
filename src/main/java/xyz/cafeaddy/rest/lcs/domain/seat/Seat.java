@@ -4,6 +4,7 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
+import lombok.experimental.Accessors;
 import xyz.cafeaddy.rest.lcs.domain.cafeinfo.CafeInfo;
 
 import javax.persistence.*;
@@ -15,6 +16,8 @@ import javax.persistence.*;
 @NoArgsConstructor
 @Entity
 @Table(name = "cafe_seat")
+@Builder
+@Accessors(chain = true)
 public class Seat {
 
     @EmbeddedId
