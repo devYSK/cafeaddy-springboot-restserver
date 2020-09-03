@@ -34,10 +34,10 @@ public class TestRestController {
     @PostMapping("/api/datas")
     public String name4(@RequestBody TestDto2 testDto2) {
         System.out.println("메소드 접근");
-        System.out.println("ne = " + testDto2.getXPoint() );
-        System.out.println("sw = " + testDto2.getYPoint());
+
         System.out.println("메소드 종료 ");
-        return "ne = " + testDto2.getXPoint() + ", sw = " + testDto2.getYPoint() + " wow";
+        return testDto2.getSwLatitude() + " 민옥 " + "\n " + testDto2.getSwLongitude() + "하이\n"
+                + testDto2.getNeLatitude() + " 오호 \n" + testDto2.getNeLongitude() + "이렇게?";
     }
 
     @GetMapping("/api/name2")
