@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import xyz.cafeaddy.rest.lcs.service.test.TestService;
 import xyz.cafeaddy.rest.lcs.web.dto.TestDto;
+import xyz.cafeaddy.rest.lcs.web.dto.TestDto2;
 
 @RestController
 @RequiredArgsConstructor
@@ -31,12 +32,12 @@ public class TestRestController {
     }
 
     @PostMapping("/api/datas")
-    public String name4(@RequestParam String xPoint, @RequestParam String yPoint) {
+    public String name4(@RequestBody TestDto2 testDto2) {
         System.out.println("메소드 접근");
-        System.out.println("ne = " + xPoint );
-        System.out.println("sw = " + yPoint);
+        System.out.println("ne = " + testDto2.getXPoint() );
+        System.out.println("sw = " + testDto2.getYPoint());
         System.out.println("메소드 종료 ");
-        return "ne = " + xPoint + ", sw = " + yPoint + " wow";
+        return "ne = " + testDto2.getXPoint() + ", sw = " + testDto2.getYPoint() + " wow";
     }
 
     @GetMapping("/api/name2")
