@@ -32,7 +32,10 @@ public class TestRestController {
 
     @PostMapping("/api/datas")
     public String name4(@RequestParam Double ne, @RequestParam Double sw) {
-
+        System.out.println("메소드 접근");
+        System.out.println("ne = " + ne );
+        System.out.println("sw = " + sw);
+        System.out.println("메소드 종료 ");
         return "ne = " + ne + ", sw = " + sw + " wow";
     }
 
