@@ -30,7 +30,7 @@ public class TestRestController {
         return name + "hi";
     }
 
-    @PostMapping("/api/name")
+    @PostMapping("/api/datas")
     public String name4(@RequestParam Double ne, @RequestParam Double sw) {
 
         return "ne = " + ne + ", sw = " + sw + " wow";
