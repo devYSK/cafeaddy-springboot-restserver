@@ -6,3 +6,4 @@ build
 properties
 sql
 application-local-db.properties
+/src/test

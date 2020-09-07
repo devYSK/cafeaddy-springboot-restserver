@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 import xyz.cafeaddy.rest.lcs.service.cafeinfo.CafeInfoService;
 import xyz.cafeaddy.rest.lcs.web.dto.response.CafeInfoListResponseDto;
 import xyz.cafeaddy.rest.lcs.web.response.ErrorResponse;
+import xyz.cafeaddy.rest.lcs.web.response.Response;
 
 import java.util.List;
 
@@ -29,37 +30,15 @@ public class CafeInfoController {
 //
 //    }
 
-    @GetMapping("/cafe-infos")
+    @GetMapping("/cafes")
     public ResponseEntity<?> findAllCafe() {
 
         List<CafeInfoListResponseDto> cafeList =  cafeInfoService.findAll();
 
-        return cafeList.size() != 0 ? ResponseEntity.ok(cafeList)
-                : ResponseEntity.status(HttpStatus.NOT_FOUND).body(new ErrorResponse());
+        return cafeList.size() != 0 ? Response.ok(cafeList) : Response.notFound();
 
     }
 
-//    @GetMapping("/cafe-infos2")
-//    public ResponseEntity<List<CafeInfoListResponseDto>> findAllCafe2() {
-//
-//        HttpHeaders headers = new HttpHeaders();
-//
-//
-//        ResponseEntity.ok().header().body();
-//
-//        return ResponseEntity.ok(cafeInfoService.findAll());
-//    }
 
-
-//    @GetMapping("/cafe-infos")
-//    public List<CafeInfoListResponseDto> findAllCafe() {
-//        ResponseEntity<List<CafeInfo>> entity = new ResponseEntity<List<CafeInfo>>(HttpStatus.OK);
-//
-//        List<CafeInfoListResponseDto> list = cafeInfoService.findAll();
-//
-//        return Response<>
-//
-////        return cafeInfoService.findAll();
-//    }
 
 }

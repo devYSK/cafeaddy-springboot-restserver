@@ -19,7 +19,7 @@ public class OwnerSample {
     @Autowired
     private OwnerRepository ownerRepository;
 
-    @Test
+//    @Test
     public void sampleCreate() {
         Owner owner = Owner.builder()
                 .email("kim206@naver.com")
