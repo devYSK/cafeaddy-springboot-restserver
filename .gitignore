@@ -7,3 +7,4 @@ properties
 sql
 application-local-db.properties
 /src/test
+/src/test/java/xyz/cafeaddy/rest/lcs
