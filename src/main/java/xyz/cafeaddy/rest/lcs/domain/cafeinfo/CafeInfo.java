@@ -1,5 +1,6 @@
 package xyz.cafeaddy.rest.lcs.domain.cafeinfo;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.*;
 import lombok.experimental.Accessors;
 import org.hibernate.annotations.Type;
@@ -41,9 +42,7 @@ public class CafeInfo {
     @Column(name = "close_time")
     private LocalDateTime closeTime;
 
-
-    @Column(name = "location", columnDefinition="ST_AsText(POINT)" )
-//    @Type(type = "org.hibernate.spatial.GeometryType")
+    @Column(name = "location")
     private Point location;
 
     @Column(name = "parcel_addr")
@@ -53,6 +52,7 @@ public class CafeInfo {
     private String streetAddr;
 
 
+    @JsonBackReference
     @ManyToOne
     @JoinColumn(name = "owner_id", referencedColumnName = "owner_id")
     private Owner owner;
