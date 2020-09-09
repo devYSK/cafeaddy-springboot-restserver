@@ -2,6 +2,9 @@ package xyz.cafeaddy.rest.lcs.domain.cafeinfo;
 
 import lombok.*;
 import lombok.experimental.Accessors;
+import org.hibernate.annotations.Type;
+import org.locationtech.jts.geom.Point;
+//import org.springframework.data.geo.Point;
 import xyz.cafeaddy.rest.lcs.domain.owner.Owner;
 import xyz.cafeaddy.rest.lcs.domain.seat.Seat;
 
@@ -34,14 +37,14 @@ public class CafeInfo {
     @Column(name = "open_time")
     private LocalDateTime openTime;
 
+
     @Column(name = "close_time")
     private LocalDateTime closeTime;
 
-    @Column(name = "lat")
-    private Double latitude;
 
-    @Column(name = "lon")
-    private Double longitude;
+    @Column(name = "location", columnDefinition="ST_AsText(POINT)" )
+//    @Type(type = "org.hibernate.spatial.GeometryType")
+    private Point location;
 
     @Column(name = "parcel_addr")
     private String parcelAddr;

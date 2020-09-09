@@ -41,6 +41,9 @@ dependencies {
 
     compile('com.fasterxml.jackson.core:jackson-databind:')
 
+
+    compile('org.hibernate:hibernate-spatial:5.4.21.Final')
+
     // mysql
     //compile('org.springframework.session:spring-session-jdbc')
 //    compile('mysql:mysql-connector-java')

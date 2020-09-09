@@ -5,6 +5,9 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
+import org.locationtech.jts.geom.Coordinate;
+import org.locationtech.jts.geom.Point;
+import org.locationtech.jts.io.WKTReader;
 import xyz.cafeaddy.rest.lcs.domain.test.Test;
 
 @Getter
@@ -25,5 +28,12 @@ public class TestDto {
                 .testName(testName)
                 .title(title)
                 .build();
+    }
+
+    public void test() {
+        Coordinate coordinate = new Coordinate();
+        coordinate.x = 3.3;
+        coordinate.y = 6.6;
+
     }
 }

@@ -1,16 +1,18 @@
 package xyz.cafeaddy.rest.lcs.web.dto.response;
 
-import lombok.Builder;
-import lombok.Getter;
-import lombok.ToString;
+import lombok.*;
 import lombok.experimental.Accessors;
+import org.locationtech.jts.geom.Point;
 import xyz.cafeaddy.rest.lcs.domain.cafeinfo.CafeInfo;
 
 import java.time.LocalDateTime;
 
+@AllArgsConstructor
+@NoArgsConstructor
 @Getter
 @Accessors(chain = true)
 @ToString
+@Builder
 public class CafeInfoListResponseDto {
 
     private Long id;
@@ -25,9 +27,7 @@ public class CafeInfoListResponseDto {
 
     private LocalDateTime closeTime;
 
-    private Double latitude;
-
-    private Double longitude;
+    private Point location;
 
     private String parcelAddr;
 
@@ -41,8 +41,7 @@ public class CafeInfoListResponseDto {
         this.phone = entity.getPhone();
         this.openTime = entity.getOpenTime();
         this.closeTime = entity.getCloseTime();
-        this.latitude = entity.getLatitude();
-        this.longitude = entity.getLongitude();
+        this.location = entity.getLocation();
         this.parcelAddr = entity.getParcelAddr();
         this.streetAddr = entity.getStreetAddr();
     }

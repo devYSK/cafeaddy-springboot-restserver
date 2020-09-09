@@ -26,34 +26,34 @@ public class Response2<T> {
 
 
     private T data;
-
-    // OK
-    public static <T> Response2<T> OK(){
-        return (Response2<T>) Response2.builder()
-                .transactionTime(LocalDateTime.now())
-                .resultCode("OK")
-                .description("OK")
-                .build();
-    }
-
-
-    // DATA OK
-    public static <T> Response2<T> OK(T data){
-        return (Response2<T>) Response2.builder()
-                .transactionTime(LocalDateTime.now())
-                .resultCode("OK")
-                .description("OK")
-                .data(data)
-                .build();
-    }
-
-
-    // ERROR
-    public static <T> Response2<T> ERROR(String description){
-        return (Response2<T>) Response2.builder()
-                .transactionTime(LocalDateTime.now())
-                .resultCode("ERROR")
-                .description(description)
-                .build();
-    }
+//
+//    // OK
+//    public static <T> Response2<T> OK(){
+//        return (Response2<T>) Response2.builder()
+//                .transactionTime(LocalDateTime.now())
+//                .resultCode("OK")
+//                .description("OK")
+//                .build();
+//    }
+//
+//
+//    // DATA OK
+//    public static <T> Response2<T> OK(T data){
+//        return (Response2<T>) Response2.builder()
+//                .transactionTime(LocalDateTime.now())
+//                .resultCode("OK")
+//                .description("OK")
+//                .data(data)
+//                .build();
+//    }
+//
+//
+//    // ERROR
+//    public static <T> Response2<T> ERROR(String description){
+//        return (Response2<T>) Response2.builder()
+//                .transactionTime(LocalDateTime.now())
+//                .resultCode("ERROR")
+//                .description(description)
+//                .build();
+//    }
 }
