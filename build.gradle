@@ -40,6 +40,10 @@ dependencies {
     runtimeOnly('mysql:mysql-connector-java')
 
     compile('com.fasterxml.jackson.core:jackson-databind:')
+// https://mvnrepository.com/artifact/com.graphhopper.external/jackson-datatype-jts
+    compile group: 'com.graphhopper.external', name: 'jackson-datatype-jts', version: '0.10-2.5-1'
+
+
 
 
     compile('org.hibernate:hibernate-spatial:5.4.21.Final')

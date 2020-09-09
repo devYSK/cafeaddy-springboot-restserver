@@ -30,13 +30,5 @@ public class CafeInfoService {
                 .collect(Collectors.toList());
     }
 
-//    public BasicResponse findAll() {
-//        List<CafeInfoListResponseDto> dataList = cafeInfoRepository.findAll().stream()
-//                .map(CafeInfoListResponseDto::new)
-//                .collect(Collectors.toList());
-//
-//        return dataList.size() != 0 ? new Response<>(dataList) : new ErrorResponse();
-//
-//    }
 
 }

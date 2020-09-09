@@ -1,6 +1,7 @@
 package xyz.cafeaddy.rest.lcs.domain.owner;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.*;
 import lombok.experimental.Accessors;
 import xyz.cafeaddy.rest.lcs.domain.BaseTimeEntity;
@@ -34,7 +35,7 @@ public class Owner extends BaseTimeEntity {
 
     private String phone;
 
-    @JsonBackReference
+    @JsonManagedReference
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "owner")
     private List<CafeInfo> cafeInfoList;
 

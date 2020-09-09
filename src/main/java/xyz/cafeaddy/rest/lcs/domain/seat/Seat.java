@@ -1,5 +1,6 @@
 package xyz.cafeaddy.rest.lcs.domain.seat;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -24,6 +25,7 @@ public class Seat {
     private SeatId id;
 
     @MapsId("cafeId")
+    @JsonBackReference
     @ManyToOne
     @JoinColumn(name = "cafe_id", referencedColumnName = "cafe_id")
     private CafeInfo cafeInfo;
@@ -33,7 +35,6 @@ public class Seat {
 
     @Column(name = "use_seat_cnt")
     private Integer useSeatCnt;
-
 
 
     @Builder

@@ -27,7 +27,9 @@ public class CafeInfoListResponseDto {
 
     private LocalDateTime closeTime;
 
-    private Point location;
+    private Double latitude;
+
+    private Double longitude;
 
     private String parcelAddr;
 
@@ -41,7 +43,8 @@ public class CafeInfoListResponseDto {
         this.phone = entity.getPhone();
         this.openTime = entity.getOpenTime();
         this.closeTime = entity.getCloseTime();
-        this.location = entity.getLocation();
+        this.longitude = entity.getLocation().getX();
+        this.latitude = entity.getLocation().getY();
         this.parcelAddr = entity.getParcelAddr();
         this.streetAddr = entity.getStreetAddr();
     }

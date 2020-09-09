@@ -1,6 +1,8 @@
 package xyz.cafeaddy.rest.lcs.domain.cafeinfo;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.*;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import lombok.*;
 import lombok.experimental.Accessors;
 import org.hibernate.annotations.Type;
@@ -13,6 +15,8 @@ import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.List;
 
+@EqualsAndHashCode
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "location")
 @ToString(exclude = {"owner", "seatList"})
 @Getter
 @NoArgsConstructor
@@ -38,7 +42,6 @@ public class CafeInfo {
     @Column(name = "open_time")
     private LocalDateTime openTime;
 
-
     @Column(name = "close_time")
     private LocalDateTime closeTime;
 
@@ -57,6 +60,7 @@ public class CafeInfo {
     @JoinColumn(name = "owner_id", referencedColumnName = "owner_id")
     private Owner owner;
 
+    @JsonManagedReference
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "cafeInfo")
     private List<Seat> seatList;
 

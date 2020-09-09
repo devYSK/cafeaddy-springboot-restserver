@@ -13,14 +13,12 @@ public interface CafeInfoRepository extends JpaRepository<CafeInfo, Long> {
 
 
     /**
-     *
      * @param neLongitude 북동쪽 경도 (northEast longitude)
      * @param neLatitude 북동쪽 위도 (northEast latitude)
      * @param swLongitude 남서쪽 경도 (southWest longitude)
      * @param swLatitude 남서쪽 위도 (southWest latitude)
      * @return
      */
-
     @Query(value = "SELECT * FROM cafe_info AS c\n" +
             "WHERE MBRCONTAINS" +
             "(ST_LINESTRINGFROMTEXT(CONCAT('LINESTRING(', :neLongitude, ' ', :neLatitude, ',', :swLongitude, ' ', :swLatitude, ')')), c.location);\n"
