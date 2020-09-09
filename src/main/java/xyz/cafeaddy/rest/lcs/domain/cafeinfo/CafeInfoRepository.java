@@ -25,8 +25,8 @@ public interface CafeInfoRepository extends JpaRepository<CafeInfo, Long> {
             "WHERE MBRCONTAINS" +
             "(ST_LINESTRINGFROMTEXT(CONCAT('LINESTRING(', :neLongitude, ' ', :neLatitude, ',', :swLongitude, ' ', :swLatitude, ')')), c.location);\n"
             , nativeQuery= true)
-    public List<CafeInfo> findByMBRContains(@Param("x1") Double neLongitude, @Param("y1") Double neLatitude,
-                                            @Param("x2") Double swLongitude, @Param("y2") Double swLatitude);
+    List<CafeInfo> findByMBRContains(@Param("neLongitude") Double neLongitude, @Param("neLatitude") Double neLatitude,
+                                            @Param("swLongitude") Double swLongitude, @Param("swLatitude") Double swLatitude);
 
 
 }
