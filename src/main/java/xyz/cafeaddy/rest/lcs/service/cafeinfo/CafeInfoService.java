@@ -2,6 +2,8 @@ package xyz.cafeaddy.rest.lcs.service.cafeinfo;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.RequestBody;
 import xyz.cafeaddy.rest.lcs.domain.cafeinfo.CafeInfoRepository;
 import xyz.cafeaddy.rest.lcs.web.dto.request.cafeinfo.CafeInfoListRequestDto;
 import xyz.cafeaddy.rest.lcs.web.dto.response.CafeInfoListResponseDto;
@@ -23,6 +25,7 @@ public class CafeInfoService {
 //        return null;
 //    }
 
+    @Transactional
     public List<CafeInfoListResponseDto> findAll() {
 
         return cafeInfoRepository.findAll()
@@ -32,7 +35,7 @@ public class CafeInfoService {
     }
 
 
-    public List<CafeInfoListResponseDto> findAllAroundCafe(CafeInfoListRequestDto requestDto) {
+    public List<CafeInfoListResponseDto> findAllAroundCafe(@RequestBody CafeInfoListRequestDto requestDto) {
         return cafeInfoRepository.findByMBRContains(requestDto)
                 .stream()
                 .map(CafeInfoListResponseDto::new)

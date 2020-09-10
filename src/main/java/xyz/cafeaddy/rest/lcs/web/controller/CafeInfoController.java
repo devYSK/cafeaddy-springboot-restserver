@@ -1,6 +1,7 @@
 package xyz.cafeaddy.rest.lcs.web.controller;
 
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,6 +20,7 @@ import java.util.List;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/api")
+@Slf4j
 public class CafeInfoController {
 
     private final CafeInfoService cafeInfoService;
@@ -43,6 +45,7 @@ public class CafeInfoController {
     @GetMapping("/cafes/around")
     public ResponseEntity<?> findAllAroundCafe(CafeInfoListRequestDto requestDto) {
 
+        log.info("data : " + requestDto.toString() + "\n");
         List<CafeInfoListResponseDto> cafeList = cafeInfoService.findAllAroundCafe(requestDto);
 
         return cafeList.size() != 0 ? Response.ok(cafeList) : Response.notFound();
