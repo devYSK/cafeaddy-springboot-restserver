@@ -35,7 +35,7 @@ public class CafeInfoService {
     }
 
 
-    public List<CafeInfoListResponseDto> findAllAroundCafe(@RequestBody CafeInfoListRequestDto requestDto) {
+    public List<CafeInfoListResponseDto> findAllAroundCafe(CafeInfoListRequestDto requestDto) {
         return cafeInfoRepository.findByMBRContains(requestDto)
                 .stream()
                 .map(CafeInfoListResponseDto::new)
