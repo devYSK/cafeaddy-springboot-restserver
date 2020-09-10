@@ -35,6 +35,7 @@ public class CafeInfoService {
     }
 
 
+    @Transactional
     public List<CafeInfoListResponseDto> findAllAroundCafe(CafeInfoListRequestDto requestDto) {
         return cafeInfoRepository.findByMBRContains(requestDto)
                 .stream()
