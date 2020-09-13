@@ -29,6 +29,10 @@ public class Response<T> extends BasicResponse {
         return ResponseEntity.ok().body(new Response<T>(data));
     }
 
+    public static ResponseEntity<?> noContent() {
+        return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+    }
+
     public static ResponseEntity<?> notFound() {
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(new ErrorResponse());
     }
