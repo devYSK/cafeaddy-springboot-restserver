@@ -1,6 +1,5 @@
 package xyz.cafeaddy.rest.lcs.domain.cafeinfo;
 
-import org.locationtech.jts.geom.Point;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -38,7 +37,17 @@ public interface CafeInfoRepository extends JpaRepository<CafeInfo, Long> {
     List<CafeInfo> findByMBRContains(@Param("location")CafeInfoListRequestDto location);
 
 
+    @Query(value = "SELECT * FROM cafe_info AS c WHERE MATCH(c.name) AGAINST ('*':keyword'*' IN BOOLEAN MODE);"
+            , nativeQuery = true)
+    List<CafeInfo> findAllByCafeName(@Param("keyword") String keyword);
+
+
+//    @Query(value = "SELECT * FROM cafe_info AS c" +
+//            "WHERE ")
+//    List<CafeInfo> findByAddress(String keyword);
 }
+
+
 
 // 특정 좌표만 찾아내는것
 //SELECT * FROM cafe_info AS c

@@ -4,12 +4,10 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import xyz.cafeaddy.rest.lcs.service.cafeinfo.CafeInfoService;
 import xyz.cafeaddy.rest.lcs.web.dto.request.cafeinfo.CafeInfoListRequestDto;
+import xyz.cafeaddy.rest.lcs.web.dto.request.cafeinfo.CafeListByKeywordRequestDto;
 import xyz.cafeaddy.rest.lcs.web.dto.response.CafeInfoListResponseDto;
 import xyz.cafeaddy.rest.lcs.web.response.ErrorResponse;
 import xyz.cafeaddy.rest.lcs.web.response.Response;
@@ -20,7 +18,7 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/api")
+@RequestMapping("/api/cafes")
 @Slf4j
 public class CafeInfoController {
 
@@ -34,7 +32,7 @@ public class CafeInfoController {
 //
 //    }
 
-    @GetMapping("/cafes")
+    @GetMapping("/")
     public ResponseEntity<?> findAllCafe() {
 
         List<CafeInfoListResponseDto> cafeList =  cafeInfoService.findAll();
@@ -43,8 +41,8 @@ public class CafeInfoController {
 
     }
 
-    @GetMapping("/cafes/around")
-    public ResponseEntity<?> findAllAroundCafe( CafeInfoListRequestDto requestDto) {
+    @GetMapping("/around")
+    public ResponseEntity<?> findAllAroundCafe(CafeInfoListRequestDto requestDto) {
 
         log.info("\ndata : " + requestDto.toString() + "\n");
         List<CafeInfoListResponseDto> cafeList = cafeInfoService.findAllAroundCafe(requestDto);
@@ -53,5 +51,22 @@ public class CafeInfoController {
     }
 
 
+    @GetMapping("/name/{cafeName}")
+    public ResponseEntity<?> findAllByCafeName(@PathVariable String cafeName) {
+
+        List<CafeInfoListResponseDto> cafeList = cafeInfoService.findAllCafeByName(cafeName);
+
+        return cafeList.size() != 0 ? Response.ok(cafeList) : Response.noContent();
+    }
+
+
+
+//    @GetMapping("/cafes/keyword")
+//    public ResponseEntity<?> findAllCafeByKeyword(CafeListByKeywordRequestDto requestDto) {
+//
+//        List<CafeInfoListResponseDto> cafeList = cafeInfoService.findAllCafeByName(requestDto);
+//
+//        return cafeList.size() != 0 ? Response.ok(cafeList) : Response.noContent();
+//    }
 
 }
