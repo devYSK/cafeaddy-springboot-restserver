@@ -36,6 +36,8 @@ public class CafeInfoListResponseDto {
 
     private String streetAddr;
 
+    private String brand;
+
     private List<SeatInfoResponseDto> seatInfos;
 
     public CafeInfoListResponseDto(CafeInfo entity) {
@@ -49,6 +51,7 @@ public class CafeInfoListResponseDto {
         this.latitude = entity.getLocation().getY();
         this.parcelAddr = entity.getParcelAddr();
         this.streetAddr = entity.getStreetAddr();
+        this.brand = entity.getBrand();
 
         this.seatInfos = entity.getSeatList()
                 .stream()

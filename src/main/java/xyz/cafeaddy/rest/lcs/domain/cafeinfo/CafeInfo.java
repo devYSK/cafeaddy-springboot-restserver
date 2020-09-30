@@ -54,6 +54,8 @@ public class CafeInfo {
     @Column(name = "street_addr")
     private String streetAddr;
 
+    @Column(name = "brand")
+    private String brand;
 
     @JsonBackReference
     @ManyToOne
