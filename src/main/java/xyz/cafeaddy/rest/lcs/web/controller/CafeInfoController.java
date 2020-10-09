@@ -44,7 +44,6 @@ public class CafeInfoController {
     @GetMapping("/around")
     public ResponseEntity<?> findAllAroundCafe(CafeInfoListRequestDto requestDto) {
 
-        log.info("\ndata : " + requestDto.toString() + "\n");
         List<CafeInfoListResponseDto> cafeList = cafeInfoService.findAllAroundCafe(requestDto);
 
         return cafeList.size() != 0 ? Response.ok(cafeList) : Response.noContent();
