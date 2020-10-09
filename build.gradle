@@ -49,8 +49,8 @@ dependencies {
     compile('org.hibernate:hibernate-spatial:5.4.21.Final')
 
     // mysql
-    //compile('org.springframework.session:spring-session-jdbc')
-//    compile('mysql:mysql-connector-java')
+    // compile('org.springframework.session:spring-session-jdbc')
+    // compile('mysql:mysql-connector-java')
     compile("com.h2database:h2")
 
     // 웹 템플릿 엔진
@@ -59,6 +59,9 @@ dependencies {
     compile("org.springframework.boot:spring-boot-devtools")
 
     testCompile('org.springframework.boot:spring-boot-starter-test')
+
+    // 스프링 시큐리티
+    implementation 'org.springframework.boot:spring-boot-starter-security'
 
 
     annotationProcessor('org.projectlombok:lombok')
