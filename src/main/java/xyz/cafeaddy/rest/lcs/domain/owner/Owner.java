@@ -6,12 +6,14 @@ import lombok.*;
 import lombok.experimental.Accessors;
 import xyz.cafeaddy.rest.lcs.domain.BaseTimeEntity;
 import xyz.cafeaddy.rest.lcs.domain.cafeinfo.CafeInfo;
+import xyz.cafeaddy.rest.lcs.utils.Authority;
 
 import javax.persistence.*;
 import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
+@Setter
 @Getter
 @Entity
 @Table(name = "cafe_owner")
@@ -29,7 +31,7 @@ public class Owner extends BaseTimeEntity {
 
     private String password;
 
-    private String auth;
+    private Authority auth;
 
     private String name;
 
