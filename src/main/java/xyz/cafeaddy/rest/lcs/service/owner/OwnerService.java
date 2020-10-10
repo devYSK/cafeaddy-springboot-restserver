@@ -1,6 +1,7 @@
 package xyz.cafeaddy.rest.lcs.service.owner;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -18,6 +19,16 @@ import java.util.Optional;
 public class OwnerService {
 
     private final OwnerRepository ownerRepository;
+
+    @Transactional
+    public ResponseEntity<?>  duplicateEmailCheck(String email) {
+
+        ResponseEntity<?> response = Response.duplicate();
+
+        return ownerRepository.findByEmail(email).isPresent() ? Response.duplicate() : Response.ok(true);
+
+    }
+
 
     @Transactional
     public Long join(OwnerJoinRequestDto requestDto) {

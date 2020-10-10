@@ -37,4 +37,7 @@ public class Response<T> extends BasicResponse {
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(new ErrorResponse());
     }
 
+    public static ResponseEntity<?> duplicate() {
+        return ResponseEntity.status(HttpStatus.CONFLICT).build();
+    }
 }
