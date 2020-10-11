@@ -1,6 +1,7 @@
 package xyz.cafeaddy.rest.lcs.service.owner;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -12,8 +13,6 @@ import xyz.cafeaddy.rest.lcs.web.dto.request.owner.OwnerJoinRequestDto;
 import xyz.cafeaddy.rest.lcs.web.dto.request.owner.OwnerSignInRequestDto;
 import xyz.cafeaddy.rest.lcs.web.response.Response;
 
-import java.util.Optional;
-
 @Service
 @RequiredArgsConstructor
 public class OwnerService {
@@ -21,26 +20,28 @@ public class OwnerService {
     private final OwnerRepository ownerRepository;
 
     @Transactional
-    public ResponseEntity<?>  duplicateEmailCheck(String email) {
+    public ResponseEntity<?> duplicateEmailCheck(String email) {
 
-        ResponseEntity<?> response = Response.duplicate();
-
-        return ownerRepository.findByEmail(email).isPresent() ? Response.duplicate() : Response.ok(true);
+        return ownerRepository.findByEmail(email).isPresent()
+                ? ResponseEntity.status(HttpStatus.CONFLICT).build()
+                : ResponseEntity.status(HttpStatus.OK).build();
 
     }
 
 
     @Transactional
-    public Long join(OwnerJoinRequestDto requestDto) {
+    public ResponseEntity<?> join(OwnerJoinRequestDto requestDto) {
 
         // 비밀번호 암호화
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 
-        requestDto.setPassword(passwordEncoder.encode(requestDto.getPassword()));
-
         Owner owner = requestDto.toEntity();
+        owner.setPassword(passwordEncoder.encode(requestDto.getPassword()));
         owner.setAuth(Authority.OWNER);
-        return ownerRepository.save(owner).getId();
+
+        Response.ok(ownerRepository.save(owner).getId());
+
+        return Response.ok(ownerRepository.save(owner).getId());
     }
 
     @Transactional

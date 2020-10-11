@@ -2,11 +2,10 @@ package xyz.cafeaddy.rest.lcs.web.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import xyz.cafeaddy.rest.lcs.service.owner.OwnerService;
+import xyz.cafeaddy.rest.lcs.web.dto.request.owner.OwnerJoinRequestDto;
+import xyz.cafeaddy.rest.lcs.web.dto.request.owner.OwnerSignInRequestDto;
 
 @RestController
 @RequestMapping("/api/owner")
@@ -16,13 +15,19 @@ public class OwnerController {
     private final OwnerService ownerService;
 
 
-    @GetMapping("/emailCheck/{email}")
-    public ResponseEntity<?> duplicateEmailCheck(@PathVariable("email") String email) {
+    @GetMapping("/duplicate")
+    public ResponseEntity<?> duplicateEmailCheck(String email) {
 
         return ownerService.duplicateEmailCheck(email);
     }
 
 
+    @PostMapping("/join")
+    public ResponseEntity<?> join(OwnerJoinRequestDto requestDto) {
+
+        return ownerService.join(requestDto);
+
+    }
 
 
 }

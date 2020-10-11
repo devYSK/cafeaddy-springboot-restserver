@@ -24,13 +24,6 @@ public class CafeInfoController {
 
     private final CafeInfoService cafeInfoService;
 
-//    @GetMapping("/cafe-infos")
-//    public Response<List<CafeInfoListResponseDto>> findAllCafe() {
-//
-//
-//        return cafeInfoService.findAll();
-//
-//    }
 
     @GetMapping("/")
     public ResponseEntity<?> findAllCafe() {
