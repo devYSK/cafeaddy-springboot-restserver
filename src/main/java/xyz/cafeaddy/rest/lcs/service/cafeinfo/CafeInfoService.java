@@ -3,18 +3,14 @@ package xyz.cafeaddy.rest.lcs.service.cafeinfo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.bind.annotation.RequestBody;
-import xyz.cafeaddy.rest.lcs.domain.cafeinfo.CafeInfo;
+import xyz.cafeaddy.rest.lcs.domain.cafeinfo.CafeBrandMapping;
 import xyz.cafeaddy.rest.lcs.domain.cafeinfo.CafeInfoRepository;
-import xyz.cafeaddy.rest.lcs.utils.SearchOption;
 import xyz.cafeaddy.rest.lcs.web.dto.request.cafeinfo.CafeInfoListRequestDto;
-import xyz.cafeaddy.rest.lcs.web.dto.request.cafeinfo.CafeListByKeywordRequestDto;
-import xyz.cafeaddy.rest.lcs.web.dto.response.CafeInfoListResponseDto;
-import xyz.cafeaddy.rest.lcs.web.response.BasicResponse;
-import xyz.cafeaddy.rest.lcs.web.response.ErrorResponse;
-import xyz.cafeaddy.rest.lcs.web.response.Response;
-import xyz.cafeaddy.rest.lcs.web.response.Response2;
+import xyz.cafeaddy.rest.lcs.web.dto.response.cafe.CafeBrandNameResponseDto;
+import xyz.cafeaddy.rest.lcs.web.dto.response.cafe.CafeInfoListResponseDto;
 
+import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -53,6 +49,24 @@ public class CafeInfoService {
                 .collect(Collectors.toList());
 
     }
+
+    @Transactional
+    public List<String> findAllBrandDistinct() {
+
+        return cafeInfoRepository.findAllBrand()
+                .stream()
+                .filter(cafeBrandMapping -> !cafeBrandMapping.getBrand().equals("기타"))
+                .map(CafeBrandMapping::getBrand)
+                .sorted(String::compareToIgnoreCase)
+                .collect(Collectors.toList());
+    }
+
+
+
+//    @Transactional
+//    public List<CafeBrandNameResponseDto> findBrandByKeyword() {
+//
+//    }
 
 //    @Transactional
 //    public List<CafeInfoListResponseDto> findAllCafeByName(CafeListByKeywordRequestDto requestDto) {

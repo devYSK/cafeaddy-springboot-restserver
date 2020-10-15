@@ -1,8 +1,9 @@
-package xyz.cafeaddy.rest.lcs.web.dto.response;
+package xyz.cafeaddy.rest.lcs.web.dto.response.cafe;
 
 import lombok.*;
 import lombok.experimental.Accessors;
 import xyz.cafeaddy.rest.lcs.domain.cafeinfo.CafeInfo;
+import xyz.cafeaddy.rest.lcs.web.dto.response.SeatInfoResponseDto;
 
 import java.time.LocalDateTime;
 import java.util.List;

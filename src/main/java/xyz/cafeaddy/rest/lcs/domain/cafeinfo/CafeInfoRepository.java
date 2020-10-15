@@ -41,6 +41,22 @@ public interface CafeInfoRepository extends JpaRepository<CafeInfo, Long> {
             , nativeQuery = true)
     List<CafeInfo> findAllByCafeName(@Param("keyword") String keyword);
 
+    @Query(value = "SELECT DISTINCT c.brand FROM cafe_info c " +
+            "WHERE c.brand " +
+            "LIKE :keyword%",
+    nativeQuery = true)
+    List<CafeBrandMapping> findByBrandLikes(@Param("keyword") String keyword);
+
+
+
+    @Query(value = "SELECT DISTINCT c.brand FROM cafe_info c",
+            nativeQuery = true)
+    List<CafeBrandMapping> findAllBrand();
+
+
+
+//    List<CafeBrandMapping> findByBrandContains(@Param("keyword") String keyword);
+
 
 //    @Query(value = "SELECT * FROM cafe_info AS c" +
 //            "WHERE ")

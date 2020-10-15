@@ -22,7 +22,7 @@ public class OwnerController {
     }
 
 
-    @PostMapping("/join")
+    @PostMapping("")
     public ResponseEntity<?> join(OwnerJoinRequestDto requestDto) {
 
         return ownerService.join(requestDto);

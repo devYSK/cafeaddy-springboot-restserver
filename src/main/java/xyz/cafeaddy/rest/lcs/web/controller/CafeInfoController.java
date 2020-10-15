@@ -2,14 +2,12 @@ package xyz.cafeaddy.rest.lcs.web.controller;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import xyz.cafeaddy.rest.lcs.service.cafeinfo.CafeInfoService;
 import xyz.cafeaddy.rest.lcs.web.dto.request.cafeinfo.CafeInfoListRequestDto;
-import xyz.cafeaddy.rest.lcs.web.dto.request.cafeinfo.CafeListByKeywordRequestDto;
-import xyz.cafeaddy.rest.lcs.web.dto.response.CafeInfoListResponseDto;
-import xyz.cafeaddy.rest.lcs.web.response.ErrorResponse;
+import xyz.cafeaddy.rest.lcs.web.dto.response.cafe.CafeBrandNameResponseDto;
+import xyz.cafeaddy.rest.lcs.web.dto.response.cafe.CafeInfoListResponseDto;
 import xyz.cafeaddy.rest.lcs.web.response.Response;
 
 import java.util.List;
@@ -49,6 +47,15 @@ public class CafeInfoController {
         List<CafeInfoListResponseDto> cafeList = cafeInfoService.findAllCafeByName(cafeName);
 
         return cafeList.size() != 0 ? Response.ok(cafeList) : Response.noContent();
+    }
+
+
+    @GetMapping("/brands")
+    public ResponseEntity<?> findAllBrandName() {
+
+        List<String> cafeBrandNames = cafeInfoService.findAllBrandDistinct();
+
+        return cafeBrandNames != null ? Response.ok(cafeBrandNames) : Response.notFound();
     }
 
 
