@@ -6,11 +6,8 @@ import org.springframework.transaction.annotation.Transactional;
 import xyz.cafeaddy.rest.lcs.domain.cafeinfo.CafeBrandMapping;
 import xyz.cafeaddy.rest.lcs.domain.cafeinfo.CafeInfoRepository;
 import xyz.cafeaddy.rest.lcs.web.dto.request.cafeinfo.CafeInfoListRequestDto;
-import xyz.cafeaddy.rest.lcs.web.dto.response.cafe.CafeBrandNameResponseDto;
 import xyz.cafeaddy.rest.lcs.web.dto.response.cafe.CafeInfoListResponseDto;
 
-import java.util.Arrays;
-import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 

@@ -6,13 +6,10 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import xyz.cafeaddy.rest.lcs.service.cafeinfo.CafeInfoService;
 import xyz.cafeaddy.rest.lcs.web.dto.request.cafeinfo.CafeInfoListRequestDto;
-import xyz.cafeaddy.rest.lcs.web.dto.response.cafe.CafeBrandNameResponseDto;
 import xyz.cafeaddy.rest.lcs.web.dto.response.cafe.CafeInfoListResponseDto;
 import xyz.cafeaddy.rest.lcs.web.response.Response;
 
 import java.util.List;
-//
-//import static xyz.cafeaddy.rest.lcs.web.response.Response2.OK;
 
 @RestController
 @RequiredArgsConstructor

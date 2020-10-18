@@ -37,7 +37,8 @@ public interface CafeInfoRepository extends JpaRepository<CafeInfo, Long> {
     List<CafeInfo> findByMBRContains(@Param("location")CafeInfoListRequestDto location);
 
 
-    @Query(value = "SELECT * FROM cafe_info AS c WHERE MATCH(c.name) AGAINST ('*':keyword'*' IN BOOLEAN MODE);"
+    @Query(value = "SELECT * FROM cafe_info AS c WHERE MATCH(c.name) AGAINST ('*':keyword'*' IN BOOLEAN MODE)" +
+            "or c.name = :keyword ;"
             , nativeQuery = true)
     List<CafeInfo> findAllByCafeName(@Param("keyword") String keyword);
 
