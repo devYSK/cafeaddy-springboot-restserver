@@ -31,6 +31,7 @@ public class Owner extends BaseTimeEntity {
 
     private String password;
 
+    @Enumerated(EnumType.STRING)
     private Authority auth;
 
     private String name;
