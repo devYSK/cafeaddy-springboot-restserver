@@ -19,7 +19,7 @@ public class OwnerController {
     public ResponseEntity<?> duplicateEmailCheck(String email) {
 
         //TODO: url 리소스 get 으로 변경해야함(restful 하지 않음)
-        //TODO:
+
         return ownerService.duplicateEmailCheck(email);
     }
 
