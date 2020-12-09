@@ -1,4 +1,4 @@
-package xyz.cafeaddy.rest.lcs.config;
+package xyz.cafeaddy.rest.lcs.config.security;
 
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;

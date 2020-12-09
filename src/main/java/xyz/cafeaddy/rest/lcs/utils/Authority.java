@@ -10,5 +10,6 @@ public enum Authority {
     OWNER("AUTH_OWNER");
 
 
+
     private final String Auth;
 }
