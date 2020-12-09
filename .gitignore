@@ -6,7 +6,7 @@ build
 properties
 sql
 application-local-db.properties
-/src/test
-/src/test/java/xyz/cafeaddy/rest/lcs
-
+#/src/test
+#/src/test/java/xyz/cafeaddy/rest/lcs
+/src/test/java/xyz/cafeaddy/rest/lcs/domain/sample
 application-jwt.properties
